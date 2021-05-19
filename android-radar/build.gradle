@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'maven-publish'
+apply plugin: 'maven'
 
 repositories {
     mavenCentral()
@@ -50,14 +50,14 @@ android {
 }
 group = 'com.synons'
 version = '1.0'
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                groupId = 'com.synons'
-                artifactId = 'android-radar'
-                version = '1.0'
-            }
-        }
-    }
-}
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+//                groupId = 'com.synons'
+//                artifactId = 'android-radar'
+//                version = '1.0'
+//            }
+//        }
+//    }
+//}
