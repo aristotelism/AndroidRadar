@@ -1,29 +1,36 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
-ext {
-    bintrayRepo = 'cedexis-oss-maven'
-    bintrayName = 'android-radar'
-
-    publishedGroupId = 'com.cedexis'
-    libraryName = 'AndroidRadar'
-    artifact = 'android-radar'
-
-    libraryDescription = 'An open source Radar client for Android'
-
-    siteUrl = 'https://github.com/cedexis/AndroidRadar'
-    gitUrl = 'https://github.com/cedexis/AndroidRadar.git'
-
-    libraryVersion = '0.2.9'
-
-    developerId = 'cedexis'
-    developerName = 'Cedexis'
-    developerEmail = 'support@cedexis.com'
-
-    licenseName = 'The MIT License (MIT)'
-    licenseUrl = 'http://opensource.org/licenses/MIT'
-    allLicenses = ["MIT"]
+repositories {
+    mavenCentral()
+    google()
+    jcenter()
+    maven { url "https://jitpack.io" }
 }
+
+//ext {
+//    bintrayRepo = 'cedexis-oss-maven'
+//    bintrayName = 'android-radar'
+//
+//    publishedGroupId = 'com.cedexis'
+//    libraryName = 'AndroidRadar'
+//    artifact = 'android-radar'
+//
+//    libraryDescription = 'An open source Radar client for Android'
+//
+//    siteUrl = 'https://github.com/cedexis/AndroidRadar'
+//    gitUrl = 'https://github.com/cedexis/AndroidRadar.git'
+//
+//    libraryVersion = '0.2.9'
+//
+//    developerId = 'cedexis'
+//    developerName = 'Cedexis'
+//    developerEmail = 'support@cedexis.com'
+//
+//    licenseName = 'The MIT License (MIT)'
+//    licenseUrl = 'http://opensource.org/licenses/MIT'
+//    allLicenses = ["MIT"]
+//}
 
 android {
     compileSdkVersion 22
@@ -41,25 +48,15 @@ android {
         }
     }
 }
-
-
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-}
-
-group = publishedGroupId
-version = libraryVersion
-
+group = 'com.synons'
+version = '1.0'
 afterEvaluate {
     publishing {
         publications {
-            // Creates a Maven publication called "release".
             release(MavenPublication) {
                 groupId = 'com.synons'
                 artifactId = 'android-radar'
                 version = '1.0'
-//                from components.release
-
             }
         }
     }
